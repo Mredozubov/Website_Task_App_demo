@@ -1,6 +1,6 @@
--- Tasks table
+﻿-- Tasks table
 create table public.tasks (
-  task_id uuid default uuid_generate_v4() primary key,
+  task_id uuid default gen_random_uuid() primary key,
   user_id uuid references public.profiles on delete cascade,
   title text not null,
   description text,
@@ -11,3 +11,4 @@ create table public.tasks (
   created_at timestamp with time zone default timezone('utc'::text, now()),
   updated_at timestamp with time zone default timezone('utc'::text, now())
 );
+
